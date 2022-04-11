@@ -1,0 +1,17 @@
+1)ilk olarak fuzzing yaparak tahmini yer belirle
+
+2)msf-pattern_create kullanaraj fuzzingden çıkan sonucun 100 üstünü kullanarak tam yer bulmaya çalış
+
+3)msf-pattern_create den çıkan sonucu offset e koyarak çalıştır
+
+4)immuity debugger üzerinden eip nin üzerindeki crash yazısını kopyala ve msf-pattern_offset -l "create e ne yazdıysan" -q eip deki sonuç yazarak tam sonucu bul
+
+5)afterip.py kullanarak tam denk gelen numarayı test et
+
+6)başarılı olursa badcharacters.py kullanarak badchar ları bulmaya çalış
+
+7)immunity debugger üzerinden !mona find -s "\xff\xe4" -m uygulama.exe yazarak jmp esp yi bul
+
+8)jmp esp kodunu \xas\xab\xac şeklinde yazarak shellcode oluştur
+
+9) son
