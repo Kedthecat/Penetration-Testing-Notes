@@ -1,0 +1,9 @@
+systemctl start anbox-container-manager.service
+
+anbox launch --package=org.anbox.appmgr --component=org.anbox.appmgr.AppViewActivity
+
+Burp ip adresi ve portu kendine göre düzenle
+
+adb install *.apk
+
+adb shell settings put global http_proxy ip:port
