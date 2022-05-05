@@ -1,4 +1,4 @@
-systemctl start anbox-container-manager.service
+sudo systemctl start anbox-container-manager.service
 
 anbox launch --package=org.anbox.appmgr --component=org.anbox.appmgr.AppViewActivity
 
