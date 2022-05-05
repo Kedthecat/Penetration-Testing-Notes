@@ -50,7 +50,7 @@ whoami /priv en önemliler
     SeTakeOwnershipPrivilege
     SeDebugPrivilege
 ------------------------------------
-wfuzz -c -w subdomains-top1million-110000.txt.1 --sc 200,202,204,307,403 --hc 301 -u 'http://horizontall.htb/' -H "Host: FUZZ.horizontall.htb"
+wfuzz -c -w subdomains-top1million-110000.txt.1 -u 'http://horizontall.htb/' -H "Host: FUZZ.horizontall.htb"
 
 
 
