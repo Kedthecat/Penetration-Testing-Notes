@@ -10,19 +10,17 @@ setcap -r /path/to/file == getcap fix
 find / -type f \( -perm -4000 -o -perm -2000 \) -print 2>/dev/null
 ----------------------------------------
 
-ps aux | grep pts == pts ini öprenmek için
+ps aux | grep pts == pts ini öğrenmek için
 
 who -u == PID öğrenmek içim
 
-pkill -9 -t pts/1 == adamı session dan atmak için
+pkill -9 -t pts/1 == istediğimiz pts i session dan atıyoruz
 
 mount -o bind /tmp /proc/"who -u ile kendi process idin" invisible
 
-script -f /dev/pts/1 == direk adamın pc yi alıon
+script -f /dev/pts/1 == istediğimiz pts i alıyoruz
 
-for i in {1..100}; do echo "i own you"; done == adamdayken şaka amaçlı!
+for i in {1..100}; do echo "i own you"; done == KOTH makinedeyken
 
-nyancati wget ile tmp ye at, ./nyancat > /dev/pts/1
-
-./root.sh & == sınırsız king
+nyancati wget ile tmp ye at, ./nyancat > /dev/pts/1 = pts de nyancat çalıştırır
 -----------------------------------------
