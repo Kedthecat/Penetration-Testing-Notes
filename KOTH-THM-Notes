@@ -21,9 +21,6 @@ chmod g-s filename //SGID PATH
 
 -----------------------------
 
-wfuzz -c -w subdomains-top1million-110000.txt.1 -u 'http://horizontall.htb/' -H "Host: FUZZ.horizontall.htb"
-
-
 
 sudo tcpdump -i eth0 icmp == rce test
 
