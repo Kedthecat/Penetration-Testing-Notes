@@ -5,7 +5,7 @@ getcap -r / 2>/dev/null
 cat /etc/crontab
 sudo netstat -tulpn | grep LISTEN
 sudo -l
-chmod u-s == SUİD PATCH
+chmod u-s == SUID PATCH
 chmod g-s filename //SGID PATH
 ------------------------------------
 
