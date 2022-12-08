@@ -1,2 +1,0 @@
-# MyNotes
-HackingNotes
