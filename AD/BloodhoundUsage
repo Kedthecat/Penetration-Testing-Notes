@@ -1,0 +1,4 @@
+1) bloodhound-python -u 'target name' -p 'target password'<(or use --hashes 'target hash')> -ns 'target ip' -d 'target domain' -c ALL
+2) sudo neo4j console = To open a bolt server
+3) sudo bloodhound 
+4) You can drag and drop the json files into the bloodhound page
