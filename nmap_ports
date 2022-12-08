@@ -1,0 +1,1 @@
+cat ports | grep open | awk -F/ '{print $1}' ORS=',';echo

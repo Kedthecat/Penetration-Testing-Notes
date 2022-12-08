@@ -1,0 +1,12 @@
+1)Import-Module .\Find-AVSignature.ps1
+
+2)Find-AVSignature -StartByte 0 -EndByte max -Interval 10000 -Path C:\tools\met.exe -OutPath C:\tools\avtest1 -Verbose -Force
+
+3).\clamscan.exe C:\tools\avtest1\
+
+4) sonrasında sonuna kadar bulmaya devam et
+
+5)
+$bytes = [System.IO.File]::ReadAllBytes("C:\tools\met.exe")
+$bytes[36711]= 0
+[System.IO.File]::WriteAllBytes("C:\tools\met_mod.exe", $bytes)

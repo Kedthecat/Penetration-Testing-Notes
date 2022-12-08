@@ -1,0 +1,49 @@
+grep -rnw /var -e 'THM' 2>/dev/null
+grep -Ra thm
+find / -name flag
+chattr +i king.txt
+grep -e [0-9a-f]{32}
+ps aux | grep root
+grep -Ri th{ 2>/dev/null
+grep -Ri th{ 2>/dev/null
+sudo pkill -9 -u <nickname>
+
+-----------------------------
+
+
+nano /etc/hosts.allow --> sshd:10.9.184.17
+nano /etc/hosts.deny  --> sshd:ALL
+
+-----------------------------
+
+chmod u-s == SUİD PATCH
+chmod g-s filename //SGID PATH
+
+-----------------------------
+
+
+sudo tcpdump -i eth0 icmp == rce test
+
+----------------------------
+
+chmod u-s == SUİD PATCH
+chmod g-s filename == SGID PATH
+chattr -ai king.txt == chattr fix
+setcap -r /path/to/file == getcap fix
+find / -type f \( -perm -4000 -o -perm -2000 \) -print 2>/dev/null
+----------------------------------------
+
+ps aux | grep pts == PTS enum
+
+who -u == PID enum
+
+pkill -9 -t pts/1 == Kicking pts 1 out of box
+
+mount -o bind /tmp /proc/'PID' = Invisible pts
+
+script -f /dev/pts/1 == Take control of pts
+
+for i in {1..100}; do echo "i own you"; done == 
+
+./nyancat > /dev/pts/1 = Trolling pts 1 with nyancat
+-----------------------------------------
