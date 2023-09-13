@@ -58,4 +58,4 @@ sc qc "HizmetAdı" == yukarıdak komutlarla elde edilen bilgileri bu komutu kull
 -------------------------
 Belirtilmeyen Hizmet Yolu Güvenlik Açıklarını Bulma
 
-wmic service get name,displayname,pathname,startmode | findstr /i /v "c:\windows" = tırnak işareti olmayan çıktı alırsan ona saldır(bu olay siçin servisi "sc stop servisadı" komutuyla durdurmamız lazım. ondan sonra o protgrama giden path de bizim yazabildiğimiz bir alan var ise oraya zararlı exe dosyamızı koyup dinlemeye almamız lazım sonra da servisi başlatmamız lazım)
+wmic service get name,displayname,pathname,startmode |findstr /i "auto" |findstr /i /v "c:\windows\" |findstr /i /v """ = tırnak işareti olmayan çıktı alırsan ona saldır(bu olay siçin servisi "sc stop servisadı" komutuyla durdurmamız lazım. ondan sonra o protgrama giden path de bizim yazabildiğimiz bir alan var ise oraya zararlı exe dosyamızı koyup dinlemeye almamız lazım sonra da servisi başlatmamız lazım)
